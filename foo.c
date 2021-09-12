@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+// a structure defining the schema of our database's objects
 typedef struct {
 	unsigned int key;
 	char fname[16];
@@ -13,6 +14,7 @@ typedef struct {
 	unsigned int age;
 } person_rec;
 
+// opens database file for getting and inserting
 int open_record(char *filename){
 	int fd;
 	 fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
@@ -22,6 +24,7 @@ int open_record(char *filename){
 	return fd;
 }
 
+// opens tdatatabse file for updating the file (delete)
 int open_record_update(char *filename){
 	int fd;
 	fd = open(filename, O_CREAT | O_RDWR, 0644);
